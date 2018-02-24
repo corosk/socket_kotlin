@@ -1,9 +1,9 @@
 spring:
 # DataSource
   datasource:
-    url: jdbc:mysql://localhost/book_application
-    username: user
-    password: user
+    url: jdbc:mysql://localhost/socket_kotlin
+    username: root
+    password:
     driver-class-name: com.mysql.jdbc.Driver
 # JPA
   jpa:

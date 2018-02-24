@@ -16,4 +16,9 @@ class BookService @Autowired constructor(private val bookRepository: BookReposit
      * @return 書籍リスト
      */
     fun findAllBook(): MutableList<Book> = bookRepository.findAll()
+
+    fun insertBook(Book: Book):Boolean {
+        bookRepository.save(Book)
+        return true
+    }
 }

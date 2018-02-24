@@ -1,7 +1,6 @@
 /*
 package book.application.service
 
-import book.application.BookApplication
 import org.junit.Assert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,8 +18,7 @@ class BookServiceTest{
 
     @Test
     fun findAllBookTest() {
-        */
-/*var sutList = bookService.findAllBook()[f:id:KissyBnts:20160329000402p:plain]
+        var sutList = bookService.findAllBook()
         var sut = sutList[0]
         assertThat(sutList.size, be(1))
         assertThat(sut.id, be(1L))
@@ -29,6 +27,6 @@ class BookServiceTest{
         assertThat(sut.leadingSentence, be("leading"))
         assertThat(sut.imagePath, be("imagePath"))
         assertThat(sut.url, be("url"))
-    *//*
 }
-}*/
+}
+*/
