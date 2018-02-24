@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>作成</title>
+    <style>
+        dl{
+            display: inline-block;
+            width: 300px;
+            float: left;
+            margin: 5px;
+            border: 1px solid gray;
+        }
+        dd{
+            max-height: 50px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>作成</h1>
+<form action="/add" method="get">
+    <ul>
+        <li>タイトル：<input type="text" name="title"/></li>
+        <li>サブタイトル：<input type="text" name="sub"/></li>
+        <li>概要：<input type="text" name="sentence"/></li>
+        <li>画像：<input type="text" name="img"/></li>
+        <li>URL：<input type="text" name="url"/></li>
+    </ul>
+    <ul>
+        <li><input type="submit" value="作成"/></li>
+        <li><a href="/main">戻る</a></li>
+    </ul>
+</form>
+</body>
+</html>
