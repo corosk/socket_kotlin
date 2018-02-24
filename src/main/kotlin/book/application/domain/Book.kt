@@ -12,10 +12,10 @@ import javax.persistence.*
  */
 @Entity
 @Table(name = "book")
-data class Book (@Id @GeneratedValue var id: Long? = null,
-                                          @Column(nullable = false) var title: String = "",
-                                          @Column var subTitle: String? = null,
-                                          @Column(nullable = false) var leadingSentence: String = "",
-                                          @Column(nullable = false) var imagePath: String = "",
-                                          @Column(nullable = false) var url: String = "") {
+data class Book(@Id @GeneratedValue var id: Long? = null,
+                @Column(nullable = false) var title: String = "",
+                @Column var subTitle: String? = null,
+                @Column(nullable = false) var leadingSentence: String = "",
+                @Column(nullable = false) var imagePath: String = "",
+                @Column(nullable = false) var url: String = "") {
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>削除</title>
+    <style>
+        dl{
+            display: inline-block;
+            width: 100px;
+            float: left;
+            margin: 5px;
+            border: 1px solid gray;
+        }
+        dd{
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>削除</h1>
+<h2>存在しているID</h2>
+<dl th:each="book : ${books}" th:object="${book}">
+    <dt>ID</dt>
+    <dd th:text="*{id}">ID</dd>
+    <dt>タイトル</dt>
+    <dd th:text="*{title}">タイトル</dd>
+</dl>
+<br/>
+<form action="/del" method="get">
+    <ul>
+        <li>Id:<input type="text" name="id"/></li>
+    </ul>
+    <ul>
+        <li><input type="submit" value="削除"/></li>
+        <li><a href="/main">戻る</a></li>
+    </ul>
+</form>
+</body>
+</html>

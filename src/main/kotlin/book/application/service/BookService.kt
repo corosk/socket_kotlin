@@ -17,13 +17,24 @@ class BookService @Autowired constructor(private val bookRepository: BookReposit
      */
     fun findAllBook(): MutableList<Book> = bookRepository.findAll()
 
-    fun insertBook(Book: Book):Boolean {
-        bookRepository.save(Book)
-        return true
-    }
+    /**
+     * 新規本の追加
+     * @param Book 本オブジェクト
+     * @return Book
+     */
+    fun insertBook(Book: Book):Book = bookRepository.save(Book)
 
-    fun delBook(id:Long):Boolean {
-        bookRepository.delete(id)
-        return true
-    }
+    /**
+     * 本の削除
+     * @param id:Long
+     * @return true
+     */
+    fun delBook(id:Long):Unit = bookRepository.delete(id)
+
+    /**
+     * id存在確認
+     * @param id:Long
+     * @return true
+     */
+    fun existId(id:Long):Boolean = bookRepository.exists(id)
 }

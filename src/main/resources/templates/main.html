@@ -19,6 +19,10 @@
 </head>
 <body>
 <h1>一覧ページ</h1>
+<ul>
+    <li><a href="/delete/">削除画面</a></li>
+    <li><a href="/create/">作成画面</a></li>
+</ul>
 <dl th:each="book : ${books}" th:object="${book}">
     <dt>Title</dt>
     <dd th:text="*{title}">本の名前</dd>
