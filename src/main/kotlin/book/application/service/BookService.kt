@@ -21,4 +21,9 @@ class BookService @Autowired constructor(private val bookRepository: BookReposit
         bookRepository.save(Book)
         return true
     }
+
+    fun delBook(id:Long):Boolean {
+        bookRepository.delete(id)
+        return true
+    }
 }

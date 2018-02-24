@@ -30,4 +30,11 @@ class MainController @Autowired constructor(private val bookService: BookService
 
         return main()
     }
+
+    @RequestMapping("/del",method = arrayOf(RequestMethod.GET))
+    fun del(@RequestParam id:String): ModelAndView{
+        bookService.delBook(id.toLong())
+
+        return main()
+    }
 }
