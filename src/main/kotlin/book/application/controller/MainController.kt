@@ -2,12 +2,15 @@ package book.application.controller
 
 import book.application.domain.Book
 import book.application.service.BookService
+import org.glassfish.tyrus.client.ClientManager
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
+import java.net.URI
+import javax.websocket.*
 
 /**
  * 一覧画面のコントローラ.
@@ -64,5 +67,22 @@ class MainController @Autowired constructor(private val bookService: BookService
             bookService.delBook(id.toLong())
         }
         return main()
+    }
+
+    @RequestMapping("/tyrus",method = arrayOf(RequestMethod.GET))
+    fun tyrus() {
+        val config = ClientEndpointConfig.Builder.create().build()
+        val client = ClientManager.createClient()
+        val session = client.connectToServer(object : Endpoint() {
+            override fun onOpen(session: Session, config: EndpointConfig) {
+                session.addMessageHandler(MessageHandler.Whole<String> { message ->
+                    println(message)
+                })
+            }
+        }, config, URI.create("wss://ws.zaif.jp/stream?currency_pair=mona_jpy"))
+
+        while (session.isOpen) {
+            Thread.sleep(1000)
+        }
     }
 }
