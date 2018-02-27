@@ -22,6 +22,7 @@ apply plugin: 'org.springframework.boot'
 group = 'book.application'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+def tyrusVersion = '1.13.1'
 compileKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
@@ -48,5 +49,7 @@ dependencies {
 	compile("mysql:mysql-connector-java:${mysqlVersion}")
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+	compile("org.glassfish.tyrus.bundles:tyrus-standalone-client-jdk:$tyrusVersion")
+	compile("org.glassfish.tyrus:tyrus-container-grizzly-client:$tyrusVersion")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

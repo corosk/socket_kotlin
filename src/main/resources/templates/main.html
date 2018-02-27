@@ -35,5 +35,15 @@
     <dt>URL</dt>
     <dd><a href="#" th:href="*{url}" th:text="*{url}">どっかのURL</a></dd>
 </dl>
+<script type="javascript/">
+ws = new WebSocket('ws://localhost:8080/tyrus/');
+ws.onmessage = function(e) {
+    // メッセージが来た時の描画処理
+    console.log(e);
+};
+
+ws.send("メッセージの送信処理");
+</script>
+
 </body>
 </html>
